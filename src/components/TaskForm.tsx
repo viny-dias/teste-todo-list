@@ -1,24 +1,24 @@
 import { useState, useEffect, FormEvent } from 'react';
-import { PostFormProps } from '../types/TaskFormProps';
+import { TaskFormProps } from '../types/TaskFormProps';
 
-const PostForm = ({ onSubmit, onEdit, editingPost, setEditingPost }: PostFormProps) => {
+const TaskForm = ({ onSubmit, onEdit, editingTask, setEditingTask }: TaskFormProps) => {
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
   useEffect(() => {
-    if (editingPost) {
-      setTitle(editingPost.title);
-      setContent(editingPost.content);
+    if (editingTask) {
+      setTitle(editingTask.title);
+      setContent(editingTask.content);
     } else {
       setTitle('');
       setContent('');
     }
-  }, [editingPost]);
+  }, [editingTask]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (editingPost && onEdit) {
-        onEdit(title, content, editingPost.id);
+    if (editingTask && onEdit) {
+        onEdit(title, content, editingTask.id);
     } else {
         onSubmit(title, content);
     }
@@ -50,12 +50,12 @@ const PostForm = ({ onSubmit, onEdit, editingPost, setEditingPost }: PostFormPro
           type="submit"
           className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
         >
-          {editingPost ? 'Atualizar' : 'Criar'}
+          {editingTask ? 'Atualizar' : 'Criar'}
         </button>
-        {editingPost && (
+        {editingTask && (
           <button
             type="button"
-            onClick={() => setEditingPost(null)}
+            onClick={() => setEditingTask(null)}
             className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
           >
             Cancelar
@@ -66,4 +66,4 @@ const PostForm = ({ onSubmit, onEdit, editingPost, setEditingPost }: PostFormPro
   );
 };
 
-export default PostForm;
+export default TaskForm;

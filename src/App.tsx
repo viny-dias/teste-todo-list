@@ -1,4 +1,4 @@
-import { PostManager } from './components/TaskManager';
+import { TaskManager } from './components/TaskManager';
 
 export function App() {
   return (
@@ -6,7 +6,7 @@ export function App() {
       <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
         Lista de Tarefas 
       </h1>
-      <PostManager />
+      <TaskManager />
     </div>
 
   );

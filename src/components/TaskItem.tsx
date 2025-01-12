@@ -1,6 +1,6 @@
-import { PostItemProps } from "../types/TaskItemProps";
+import { TaskItemProps } from "../types/TaskItemProps";
 
-const PostItem = ({ task, onEdit, onDelete }: PostItemProps) => {
+const TaskItem = ({ task, onEdit, onDelete }: TaskItemProps) => {
   return (
     <div className="p-4 bg-gray-50 border rounded-lg shadow-sm">
       <h2 className="text-xl font-bold text-gray-800">{task.title}</h2>
@@ -23,4 +23,4 @@ const PostItem = ({ task, onEdit, onDelete }: PostItemProps) => {
   );
 };
 
-export default PostItem;
+export default TaskItem;
